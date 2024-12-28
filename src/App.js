@@ -33,6 +33,7 @@ function App() {
         <Route path="/shop/buy/:id" element={<BuyOrder />} />
 
         <Route path="/*" element={<Notfound />} />
+        <Route path="/*/*/*" element={<Notfound />} />
       </Routes>
       <Footer />
     </>
