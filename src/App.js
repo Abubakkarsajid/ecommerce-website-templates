@@ -9,6 +9,7 @@ import { SomeProducts } from "./files/SomeProducts";
 import { Salecard } from "./files/Salecard";
 import ProductDetails from "./files/SelectProduct";
 import { BuyOrder } from "./files/Order/BuyOrder";
+import Login from "./UserAccount/Login";
 
 function App() {
   return (
@@ -31,9 +32,11 @@ function App() {
         <Route path="/shop" element={<Cards />} />
         <Route path="/shop/:id" element={<ProductDetails />} />
         <Route path="/shop/buy/:id" element={<BuyOrder />} />
-
         <Route path="/*" element={<Notfound />} />
         <Route path="/*/*/*" element={<Notfound />} />
+        {/* account route */}
+        <Route path="/account/" element={<Login />} />
+
       </Routes>
       <Footer />
     </>
