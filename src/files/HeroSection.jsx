@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './custom.css'; // Import the CSS file for animations
+import { NavLink } from 'react-router-dom';
 
 export const HeroSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -39,7 +40,7 @@ export const HeroSection = () => {
           <p className="mb-5">
             Welcome to One Solutions - your one-stop shop for seamless online shopping! Explore our diverse range of products, designed to meet all your needs in just a few clicks.
           </p>
-          <button className="btn btn-primary">Shop Now</button>
+          <NavLink to={`/shop`} className="btn btn-primary">Shop Now</NavLink>
         </div>
       </div>
     </div>

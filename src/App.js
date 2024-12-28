@@ -28,6 +28,7 @@ function App() {
         />
         <Route path="/about" element={<About />} />
         <Route path="/shop" element={<Cards />} />
+        <Route path="/shop/:id" element={<Cards />} />
         <Route path="/*" element={<Notfound />} />
       </Routes>
       <Footer />
