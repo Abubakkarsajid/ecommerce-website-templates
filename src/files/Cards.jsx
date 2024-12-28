@@ -65,16 +65,16 @@ export const Cards = () => {
                 id="cards"
                 className="lg:w-1/4 md:w-1/2 p-4 w-full"
               >
-                <a
+                <NavLink
                   className="block relative h-48 rounded overflow-hidden"
-                  href={`/shop/${product.id}`}
+                  to={`/shop/${product.id}`}
                 >
                   <img
                     alt={product.title}
                     className="object-cover object-center w-full h-full block"
                     src={product.images[0] || "https://dummyimage.com/420x260"}
                   />
-                </a>
+                </NavLink>
                 <div className="mt-4">
                   <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">
                     {product.category?.name || "CATEGORY"}

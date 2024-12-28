@@ -23,7 +23,6 @@ function App() {
               <HeroSection />
               <About />
               <SomeProducts />
-              {/* <SingleCard /> */}
               <Salecard />
             </>
           }

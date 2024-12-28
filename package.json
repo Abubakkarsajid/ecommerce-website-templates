@@ -17,7 +17,7 @@
     "react-simple-typewriter": "^5.0.1",
     "react-typewriter-effect": "^1.1.0",
     "styled-components": "^6.1.13",
-    "sweetalert2": "^11.14.5",
+    "sweetalert2": "^11.15.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

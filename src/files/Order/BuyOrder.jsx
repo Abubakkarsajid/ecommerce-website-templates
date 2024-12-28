@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import Loader from "../Loader";
+import { OrderCreate } from "./OrderTemplate";
 
 export const BuyOrder = () => {
   const { id } = useParams();
@@ -44,11 +45,8 @@ export const BuyOrder = () => {
             <p className="text-gray-700 mt-2 dark:bg-gray-100 ">
               {product.description}
             </p>
-            <h2 className="text-2xl font-semibold mt-4  dark:bg-gray-100">
-              ${product.price}
-            </h2>
             <div className=" mr-4">
-              <NavLink
+              {/* <NavLink
                 to={`/shop/buy/${product.id}`}
                 className="btn btn-success mt-5 mr-5"
               >
@@ -56,7 +54,10 @@ export const BuyOrder = () => {
               </NavLink>
               <NavLink to="/shop" className="btn btn-primary">
           Back to Shop
-        </NavLink>
+        </NavLink> */}
+        <div className="my-5">
+          <OrderCreate product={{...product}} />
+        </div>
             </div>
           </div>
         </div>
