@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import Loader from "./Loader";
 
 const ProductDetails = () => {
@@ -24,7 +24,7 @@ const ProductDetails = () => {
   }, [id]);
 
   if (loading) return <Loader />;
-  if (!product) return <h1 className="text-center">Product not found</h1>;
+  if (!product) return <h1 className="text-center  dark:bg-gray-100">Product not found</h1>;
 
   return (
     <div className="container mx-auto px-5 py-10">
@@ -35,12 +35,11 @@ const ProductDetails = () => {
           className="w-full md:w-1/2 rounded-lg shadow-lg"
         />
         <div className="md:ml-10 mt-5 md:mt-0">
-          <h1 className="text-3xl font-bold">{product.title}</h1>
-          <p className="text-gray-700 mt-2">{product.description}</p>
-          <h2 className="text-2xl font-semibold mt-4">${product.price}</h2>
+          <h1 className="text-3xl font-bold dark:bg-gray-100 ">{product.title}</h1>
+          <p className="text-gray-700 mt-2 dark:bg-gray-100 ">{product.description}</p>
+          <h2 className="text-2xl font-semibold mt-4  dark:bg-gray-100">${product.price}</h2>
           <div className="">
-          <button className="btn btn-success mt-5 mr-5">Buy Now</button>
-          <button className="btn btn-primary mt-5">Add to Cart</button>
+          <NavLink to={`/shop/buy/${product.id}`} className="btn btn-success mt-5 mr-5">Buy Now</NavLink>
           </div>
         </div>
       </div>

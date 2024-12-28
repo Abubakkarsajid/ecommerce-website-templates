@@ -67,7 +67,7 @@ export const Cards = () => {
               >
                 <a
                   className="block relative h-48 rounded overflow-hidden"
-                  href={`/product/${product.id}`}
+                  href={`/shop/${product.id}`}
                 >
                   <img
                     alt={product.title}
