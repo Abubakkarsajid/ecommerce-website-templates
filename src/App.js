@@ -8,6 +8,7 @@ import Notfound from "./files/404Notfound";
 // import { SingleCard } from "./files/SingleCard";
 import { SomeProducts } from "./files/SomeProducts";
 import { Salecard } from "./files/Salecard";
+import ProductDetails from "./files/SelectProduct";
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
         />
         <Route path="/about" element={<About />} />
         <Route path="/shop" element={<Cards />} />
-        <Route path="/shop/:id" element={<Cards />} />
+        <Route path="/shop/:id" element={<ProductDetails />} />
         <Route path="/*" element={<Notfound />} />
       </Routes>
       <Footer />

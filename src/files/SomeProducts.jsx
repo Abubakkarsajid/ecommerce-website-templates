@@ -132,12 +132,12 @@ return (
                 Add To favorites
               </button>
               <br />
-              <a
-                href={`/shop/${product.id}`}
+              <NavLink
+                to={`/shop/${product.id}`}
                 className="btn btn-success my-5 w-full"
               >
                 Buy Now!
-              </a>
+              </NavLink>
             </div>
           ))
         ) : (

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./custom.css";
 import Loader from "./Loader";
+import { NavLink } from "react-router-dom";
 
 export const Cards = () => {
   const [products, setProducts] = useState([]);
@@ -131,9 +132,9 @@ export const Cards = () => {
                   Add To favorites
                 </button>
                 <br />
-                <a href={`/shop/${product.id}`}  className="btn btn-success my-5 w-full">
+                <NavLink to={`/shop/${product.id}`}  className="btn btn-success my-5 w-full">
                   Buy Now!
-                </a>
+                </NavLink>
               </div>
             ))
           ) : (
