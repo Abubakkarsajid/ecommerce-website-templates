@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { SalrTimmer } from './SalrTimmer';
 import { NavLink } from 'react-router-dom';
+import Loader from './Loader';
 // import Loader from './Loader';
 
 export const Salecard = () => {
@@ -21,7 +22,7 @@ export const Salecard = () => {
 
   if (!product) {
     return <div className='text-center justify-between align-bottom'>{
-        
+        <Loader />
         }</div>; // Display a loading message until the product is fetched
   }
 
