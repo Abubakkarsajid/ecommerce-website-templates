@@ -25,12 +25,13 @@ export const BuyOrder = () => {
     buyOrder();
   }, [id]);
 
-  if (loading) return <Loader />;
+  if (loading) {return <Loader />};
   if (!product)
+    {
     return <h1 className="text-center  dark:bg-gray-100">Product not found</h1>;
-
+}
   return (
-    <div>
+    <div className="my-10">
       <div className="container mx-auto px-5 py-10">
         <div className="flex flex-col md:flex-row items-center">
           <img
@@ -45,16 +46,6 @@ export const BuyOrder = () => {
             <p className="text-gray-700 mt-2 dark:bg-gray-100 ">
               {product.description}
             </p>
-            <div className=" mr-4">
-              {/* <NavLink
-                to={`/shop/buy/${product.id}`}
-                className="btn btn-success mt-5 mr-5"
-              >
-                Buy Now
-              </NavLink>
-              <NavLink to="/shop" className="btn btn-primary">
-          Back to Shop
-        </NavLink> */}
         <div className="my-5">
           <OrderCreate product={{...product}} />
         </div>
@@ -62,7 +53,5 @@ export const BuyOrder = () => {
           </div>
         </div>
       </div>
-      
-    </div>
   );
 };
