@@ -20,7 +20,7 @@
   }
   #cards:hover{
     /* border: 1px solid black; */
-    box-shadow: 1px 2px 3px 4px darkgray;
+    box-shadow: 1px 2px 3px 4px rgb(247, 247, 247);
     cursor: pointer;
   }
   #favorites:active{
