@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import Swal from "sweetalert2";
 
 export const OrderCreate = ({ product }) => {
   const generateRandomId = (length = 6) => {
@@ -39,7 +40,13 @@ export const OrderCreate = ({ product }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(order);
-    alert("Order placed successfully!");
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Your work has been saved",
+      showConfirmButton: false,
+      timer: 1000
+    });
     // Add logic to send the order to the backend or an API
   };
 
