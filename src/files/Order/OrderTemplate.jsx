@@ -37,6 +37,13 @@ export const OrderCreate = ({ product }) => {
     setOrder({ ...order, [name]: value });
   };
 
+  const handleGenerateId = () => {
+    setOrder((prevOrder) => ({
+      ...prevOrder,
+      UserId: generateRandomId(),
+    }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(order);
@@ -45,7 +52,7 @@ export const OrderCreate = ({ product }) => {
       icon: "success",
       title: "Place Order success ",
       showConfirmButton: false,
-      timer: 1000
+      timer: 1000,
     });
     // Add logic to send the order to the backend or an API
   };
@@ -58,6 +65,14 @@ export const OrderCreate = ({ product }) => {
             <h1>Order ID: {product.id}</h1>
             <h1>Price: ${product.price}</h1>
           </div>
+          <h3>User ID: {order.UserId}</h3>
+          <button
+            type="button"
+            className="btn btn-generate"
+            onClick={handleGenerateId}
+          >
+            Generate New User ID
+          </button>
           <input
             required
             placeholder="Name"
@@ -71,7 +86,6 @@ export const OrderCreate = ({ product }) => {
             required
             placeholder="Phone number"
             type="tel"
-            
             title="Enter a valid 10-digit phone number"
             value={order.phone}
             onChange={changeHandler}
@@ -156,5 +170,14 @@ const StyledWrapper = styled.div`
 
   .btn:hover {
     background: darkgreen;
+  }
+
+  .btn-generate {
+    margin-bottom: 15px;
+    background: blue;
+  }
+
+  .btn-generate:hover {
+    background: darkblue;
   }
 `;
