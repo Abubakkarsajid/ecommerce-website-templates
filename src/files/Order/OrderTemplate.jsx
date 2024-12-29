@@ -43,7 +43,7 @@ export const OrderCreate = ({ product }) => {
     Swal.fire({
       position: "top-end",
       icon: "success",
-      title: "Your work has been saved",
+      title: "Place Order success ",
       showConfirmButton: false,
       timer: 1000
     });
