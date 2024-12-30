@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Swal from "sweetalert2";
+import axios from "axios"; // Missing import
+import { toast } from "react-toastify"; // Missing import
 
 export const OrderCreate = ({ product }) => {
   const generateRandomId = (length = 6) => {
@@ -14,7 +15,7 @@ export const OrderCreate = ({ product }) => {
   };
 
   const [order, setOrder] = useState({
-    id: product.id,
+   orderid: product.id,
     productName: product.title,
     UserId: "",
     name: "",
@@ -30,32 +31,42 @@ export const OrderCreate = ({ product }) => {
       ...prevOrder,
       UserId: generateRandomId(),
     }));
-  }, []);
+  }, [product]); // Add 'product' as a dependency
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
     setOrder({ ...order, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(order);
-    Swal.fire({
-      position: "top-end",
-      icon: "success",
-      title: "Place Order success ",
-      showConfirmButton: false,
-      timer: 1000
-    });
-    // Add logic to send the order to the backend or an API
+    try {
+      const response = await axios.post("https://ecommerce-website-backend-t217.onrender.com/create-order", order);
+      setOrder({
+        orderid: product.id,
+        productName: product.title,
+        UserId: "",
+        name: "",
+        phone: "",
+        email: "",
+        address: "",
+        city: "",
+        payment: "",
+      });
+      console.log("Response:", response.data);
+      alert(`Order create successfully`);
+    } catch (error) {
+      console.error("Error creating order:", error);
+      toast.error("Failed to create order");
+    }
   };
 
   return (
     <StyledWrapper>
       <section className="section_form">
-        <form id="consultation-form" className="feed-form" onSubmit={handleSubmit}>
+        <form id="consultation-form" className="feed-form" onSubmit={submitHandler}>
           <div className="flex gap-3">
-            <h1>Order ID: {product.id}</h1>
+            <h1>product ID: {product.id}</h1>
             <h1>Price: ${product.price}</h1>
           </div>
           <input
@@ -71,7 +82,6 @@ export const OrderCreate = ({ product }) => {
             required
             placeholder="Phone number"
             type="tel"
-            
             title="Enter a valid 10-digit phone number"
             value={order.phone}
             onChange={changeHandler}
